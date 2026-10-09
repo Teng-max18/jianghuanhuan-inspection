@@ -1,0 +1,185 @@
+{
+    "version": "2.0.0",
+    "files": [
+        {
+            "path": ".nojekyll",
+            "bytes": 1,
+            "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+            "path": "404.html",
+            "bytes": 439,
+            "sha256": "eda94208ca6db2ea025c37698385ad55b6daa854a25a6267797883fb4bfc78fd"
+        },
+        {
+            "path": "CHANGELOG.md",
+            "bytes": 893,
+            "sha256": "ac2c82b728c7d172634e201b4e5a97ec0298357c9455df5c8c4ded9f5bb06e72"
+        },
+        {
+            "path": "README.md",
+            "bytes": 6481,
+            "sha256": "991fd26393a9ccba3de5aff2774a9844d0be645ad4fae6f07ed45401199f20d2"
+        },
+        {
+            "path": "assets/js/app.js",
+            "bytes": 8475,
+            "sha256": "b6065395b0b3add5af521f5864d113cad72668a7a28a7a2ec7e17b7c97ae908d"
+        },
+        {
+            "path": "assets/js/core.js",
+            "bytes": 8853,
+            "sha256": "5be1d74e75ee899461c7712286894471bc067a36c0b249b16b4cfadba5311bf7"
+        },
+        {
+            "path": "assets/js/data.js",
+            "bytes": 2400,
+            "sha256": "67e0829fb96e753132319da277685ba3624fd7aa45e9d09371b705e92d983571"
+        },
+        {
+            "path": "assets/js/pages/home.js",
+            "bytes": 6069,
+            "sha256": "78d696cc604fd5513f674b9f25c47d1b6cfddd1c05f9cc5f1df4bba382fc927c"
+        },
+        {
+            "path": "assets/js/pages/inspections.js",
+            "bytes": 15972,
+            "sha256": "1a1438cb7e7e5a99d9f5f18c126901a81feb90dfcddeee8ff34fe779a342d9f7"
+        },
+        {
+            "path": "assets/js/pages/personnel.js",
+            "bytes": 6594,
+            "sha256": "e5787d004099d5742557bac927286869781ca5a28caa9a8df88297dfd86a0a26"
+        },
+        {
+            "path": "assets/js/pages/settings.js",
+            "bytes": 7437,
+            "sha256": "868db5c7812ea8e03ba9a3ae81f2fb4a2b635f77420086e0cd1bd84ec61abdb3"
+        },
+        {
+            "path": "assets/js/pages/stores.js",
+            "bytes": 5691,
+            "sha256": "824a3f7b074edb89e23a485ff004d3554e583bfa09b23fd431b97bdd2752190a"
+        },
+        {
+            "path": "assets/js/pages/support.js",
+            "bytes": 5595,
+            "sha256": "b26bc6bcc0404d00d33e19245c3443e7f9ac54cf7218e11c56a2da0b70858265"
+        },
+        {
+            "path": "assets/js/pages/weekly.js",
+            "bytes": 11537,
+            "sha256": "870be2892e77ebcfb2b26616b3db86dd5eea11ac501fb4f1785d66c448cd354a"
+        },
+        {
+            "path": "assets/js/storage.js",
+            "bytes": 4863,
+            "sha256": "da9b91295ce427300b10d0f0fa2615721bfef55ae40055e821735d9df70723db"
+        },
+        {
+            "path": "assets/js/ui.js",
+            "bytes": 6223,
+            "sha256": "2ae09af8b5b6664f6a32ecc5e386f68801e8ae9eccdf5b7b1a7d5d8f8ac33b2d"
+        },
+        {
+            "path": "assets/style.css",
+            "bytes": 26609,
+            "sha256": "1b0d796d9327e4466aab74ffb9df3eae21bfad2af39a5a124dac6fa8c458fce9"
+        },
+        {
+            "path": "docs/DATA_MODEL.md",
+            "bytes": 2501,
+            "sha256": "e4ce0fb0cf6a253fc6f077bc4cd56aced339bd06cb7f7df38b453daf3db49f7e"
+        },
+        {
+            "path": "docs/GITHUB_DEPLOY.md",
+            "bytes": 3024,
+            "sha256": "40fdd75606ab5d70236b0e9b513bdb6aaaee1198d7d76cde36262d07a0f7f57e"
+        },
+        {
+            "path": "docs/VERIFICATION.md",
+            "bytes": 2142,
+            "sha256": "7c7f116f38cf9d54d1f9c8e5edd36e59c207ee246c31978f33bef88a4137e055"
+        },
+        {
+            "path": "icons/apple-touch-icon.png",
+            "bytes": 6215,
+            "sha256": "c2e2a6959c79c4a8594f662cda0c5daa6c160b7ce0b0b03e045233034d745d4a"
+        },
+        {
+            "path": "icons/icon-192.png",
+            "bytes": 6468,
+            "sha256": "c45e56c18f2580ecaef40abc397c0cba5c191373ade2951c199cb6a26df75dd5"
+        },
+        {
+            "path": "icons/icon-512.png",
+            "bytes": 16753,
+            "sha256": "2d12d9fa534832be1928f25b7a6da8a5ffaea4bd005c1ff7172ce4d603b53b89"
+        },
+        {
+            "path": "icons/icon-maskable-512.png",
+            "bytes": 16753,
+            "sha256": "2d12d9fa534832be1928f25b7a6da8a5ffaea4bd005c1ff7172ce4d603b53b89"
+        },
+        {
+            "path": "icons/icon.svg",
+            "bytes": 454,
+            "sha256": "7e74a18b246c90acd869c3e43164c7021b3dd525a9e307f407aed2d88442df92"
+        },
+        {
+            "path": "index.html",
+            "bytes": 2269,
+            "sha256": "82a3c4eff79eeb303eb6b6ffa6849e42469271fbc3119d3e9fab6f96eb4b3382"
+        },
+        {
+            "path": "manifest.json",
+            "bytes": 612,
+            "sha256": "7d483ba40941431d53c59d520a9cff5b7e85b7213b565756b2d2157b8811387a"
+        },
+        {
+            "path": "service-worker.js",
+            "bytes": 2174,
+            "sha256": "0839815a8bbe25356632ea3d3697201e129ee64c9ea25646eea9a83354431c85"
+        },
+        {
+            "path": "start-preview.bat",
+            "bytes": 517,
+            "sha256": "929446343b5a1f0f09823c631e17238738aa78bd8d0b41ef16c8bcb04b5d0673"
+        },
+        {
+            "path": "start-preview.sh",
+            "bytes": 163,
+            "sha256": "57475d15fb97e391d2079687cd39075482513d8d17a07ec38bb6516f1eaa22a4"
+        },
+        {
+            "path": "tests/assets.test.cjs",
+            "bytes": 1983,
+            "sha256": "f66205e1bccd17b5fe3123e3c4d858f514d4b2beb4cc65db02374161a1a7e955"
+        },
+        {
+            "path": "tests/browser.test.cjs",
+            "bytes": 4445,
+            "sha256": "2b7523012c429a23ddbdf490d8a111217938eec455d6caf905742a1bc0b7d88d"
+        },
+        {
+            "path": "tests/business.test.cjs",
+            "bytes": 9525,
+            "sha256": "2c7f1b58044b5e5ddcf9b864250245583176a207a04479e8baf9afff87f0bc71"
+        },
+        {
+            "path": "tests/core.test.cjs",
+            "bytes": 3131,
+            "sha256": "fd43a1a4805001b6db7297ca6063853a659c23fa33bc2a13f6f2c71a576ace08"
+        },
+        {
+            "path": "tools/generate-icons.py",
+            "bytes": 1142,
+            "sha256": "7dd272b5b32b101a259f5635f66bb077f68512317a060451fd6949270091fe26"
+        },
+        {
+            "path": "先看这里.txt",
+            "bytes": 837,
+            "sha256": "ea7d36e66e26e2cc1479cb4fe229fb7417e730f1a2eeb5fed295f9a65f13052e"
+        }
+    ]
+}
