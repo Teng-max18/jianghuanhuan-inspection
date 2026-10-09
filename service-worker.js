@@ -1,5 +1,5 @@
 /* 发布源码修改时同步修改 VERSION，使离线资源更新。 */
-const VERSION = '2.0.0';
+const VERSION = '2.0.1';
 const SCOPE = new URL(self.registration.scope).pathname;
 const PREFIX = 'jianghuanhuan-' + SCOPE + '-';
 const CACHE = PREFIX + VERSION;

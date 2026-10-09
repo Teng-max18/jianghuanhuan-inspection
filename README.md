@@ -1,4 +1,4 @@
-# 江欢欢巡店管理系统 v2.0
+# 江欢欢巡店管理系统 v2.0.1
 
 可直接运行、可部署到 GitHub Pages 的完整单设备 PWA 源码。
 本项目没有构建步骤，不依赖 CDN，不需要购买服务器。压缩包根目录就是网站根目录。
@@ -89,6 +89,7 @@ Linux/macOS：运行 `bash start-preview.sh`。
 node tests/core.test.cjs
 node tests/business.test.cjs
 node tests/assets.test.cjs
+node tests/search-input.test.cjs
 ```
 
 浏览器验证需要开发工具 Playwright 和 Chromium；这是测试依赖，应用运行不需要。

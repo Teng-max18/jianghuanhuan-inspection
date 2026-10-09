@@ -34,7 +34,7 @@
     const select = (label, name, values, selected = '', attrs = '') => `<label class="field"><span>${esc(label)}</span><select name="${esc(name)}" ${attrs}>${options(values, selected)}</select></label>`;
     const storeSelect = (name = 'storeId', selected = '', allowBlank = false) => select('门店', name, (allowBlank ? [{ id: '', name: '暂不分配门店' }] : []).concat(A.state.stores), selected, allowBlank ? '' : 'required');
     const header = (eyebrow, title, subtitle, action = '') => `<div class="page-heading"><div><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1><p class="muted">${esc(subtitle)}</p></div>${action}</div>`;
-    const search = (placeholder, filters = '') => `<div class="toolbar"><label class="search">${icon('search', 19)}<input id="page-search" type="search" aria-label="搜索" placeholder="${esc(placeholder)}" value="${esc(A.filters.search || '')}"></label>${filters}</div>`;
+    const search = (placeholder, filters = '') => `<div class="toolbar"><label class="search">${icon('search', 19)}<input id="page-search" type="search" aria-label="搜索" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(placeholder)}" value="${esc(A.filters.search || '')}"></label>${filters}</div>`;
     let timer;
     function toast(message, error = false) {
         const el = document.getElementById('toast');

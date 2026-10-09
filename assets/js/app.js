@@ -6,17 +6,58 @@
     ];
     A.filters = {};
     A.route = 'home';
+    let searchTimer = null;
+    let searchComposing = false;
+    function cancelSearch() {
+        if (searchTimer !== null) clearTimeout(searchTimer);
+        searchTimer = null;
+    }
     function route() {
         const requested = location.hash.slice(1).split('?')[0];
         return A.pages[requested] ? requested : 'home';
     }
-    A.render = function (retainFocus = false) {
-        const focus = retainFocus && document.activeElement && document.activeElement.id === 'page-search';
-        const cursor = focus ? document.activeElement.selectionStart : null;
+    // 保留原搜索框与筛选栏，只替换它们后面的结果，避免打断手机输入法。
+    A.renderSearchResults = function () {
+        const main = document.getElementById('main');
+        const toolbar = main && main.querySelector('.toolbar');
+        if (!toolbar) return;
+        const template = document.createElement('template');
+        template.innerHTML = A.pages[A.route]();
+        const nextToolbar = template.content.querySelector('.toolbar');
+        if (!nextToolbar) return;
+        const results = document.createDocumentFragment();
+        let node = nextToolbar.nextSibling;
+        while (node) {
+            const next = node.nextSibling;
+            results.appendChild(node);
+            node = next;
+        }
+        while (toolbar.nextSibling) toolbar.nextSibling.remove();
+        main.appendChild(results);
+    };
+    function scheduleSearch(input) {
+        cancelSearch();
+        A.filters.search = input.value;
+        const currentRoute = A.route;
+        searchTimer = setTimeout(() => {
+            searchTimer = null;
+            if (searchComposing || A.route !== currentRoute || document.getElementById('page-search') !== input) return;
+            A.renderSearchResults();
+        }, 120);
+    }
+    A.render = function () {
+        // 网络状态或更新通知到达时也不重建正在输入的搜索框。
+        const input = document.getElementById('page-search');
+        if (input && document.activeElement === input && document.getElementById('main').dataset.route === A.route) {
+            if (!searchComposing) A.renderSearchResults();
+            return;
+        }
+        cancelSearch();
+        searchComposing = false;
         const today = new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
         document.getElementById('app').innerHTML = `<div class="app-shell"><aside class="sidebar"><a class="brand" href="#home"><span class="brand-mark">江</span><span><strong>江欢欢</strong><small>巡店管理系统</small></span></a><div class="sidebar-label">运营工作空间</div><nav aria-label="主导航">${nav.map(([key, label]) => `<a href="#${key}" class="${A.route === key ? 'active' : ''}" ${A.route === key ? 'aria-current="page"' : ''}>${U.icon(key)}<span>${label}</span>${key === 'issues' && A.state.issues.filter(A.core.isOpen).length ? `<small class="nav-count">${A.state.issues.filter(A.core.isOpen).length}</small>` : ''}</a>`).join('')}</nav><div class="sidebar-bottom"><span class="local-dot"></span><strong>本设备保存</strong><small>v${A.version} · 离线可用</small><a href="#settings">备份与导入 ${U.icon('arrow', 14)}</a></div></aside><div class="workspace"><header class="topbar"><a class="mobile-brand" href="#home"><span class="brand-mark">江</span><strong>江欢欢巡店</strong></a><span class="top-date">${today}</span><div class="top-right"><span class="connection ${navigator.onLine ? '' : 'offline'}">${navigator.onLine ? '本地保存' : '离线模式'}</span><a class="top-profile" href="#settings"><span>${U.esc(A.state.settings.name.slice(0, 1))}</span>${U.esc(A.state.settings.name)}</a></div></header>${A.waitingWorker ? `<div class="update-banner">新版本已就绪 ${U.button('更新页面', 'apply-update', '', 'secondary')}</div>` : ''}${A.storage.mode() === 'localStorage' ? '<div class="storage-banner">当前浏览器使用备用存储，照片较多时请及时导出备份。</div>' : ''}<main id="main" tabindex="-1">${A.pages[A.route]()}</main><footer class="app-footer">江欢欢巡店管理 · 数据保存在本设备</footer></div><nav class="bottom-nav" aria-label="手机导航">${[['home', '首页'], ['stores', '门店'], ['inspections', '巡店'], ['personnel', '人员'], ['settings', '我的']].map(([key, label]) => `<a href="#${key}" class="${A.route === key ? 'active' : ''}">${U.icon(key, 21)}<span>${label}</span></a>`).join('')}</nav></div>`;
         document.getElementById('app').setAttribute('aria-busy', 'false');
-        if (focus) { const input = document.getElementById('page-search'); if (input) { input.focus(); if (cursor !== null) input.setSelectionRange(cursor, cursor); } }
+        document.getElementById('main').dataset.route = A.route;
     };
     A.saved = message => { A.dirty = false; U.close(); A.render(); U.toast(message); };
     A.actions.close = () => {
@@ -50,13 +91,22 @@
     });
     document.addEventListener('input', event => {
         if (event.target.closest('#editor form')) A.dirty = true;
-        if (event.target.id === 'page-search') { A.filters.search = event.target.value; A.render(true); }
+        if (event.target.id === 'page-search') {
+            if (searchComposing || event.isComposing) { cancelSearch(); return; }
+            scheduleSearch(event.target);
+        }
+    });
+    document.addEventListener('compositionstart', event => {
+        if (event.target.id === 'page-search') { searchComposing = true; cancelSearch(); }
+    });
+    document.addEventListener('compositionend', event => {
+        if (event.target.id === 'page-search') { searchComposing = false; scheduleSearch(event.target); }
     });
     document.addEventListener('change', async event => {
         const target = event.target;
         try {
             if (target.closest('#editor form')) A.dirty = true;
-            if (target.dataset.filter) { A.filters[target.dataset.filter] = target.value; A.render(); }
+            if (target.dataset.filter) { A.filters[target.dataset.filter] = target.value; cancelSearch(); A.renderSearchResults(); }
             if (target.id === 'photo-input') await A.addPhotos(target);
             if (target.id === 'backup-input') await A.importBackup(target);
         } catch (error) { U.toast(error.message, true); }
@@ -68,7 +118,7 @@
     const originalModal = U.modal;
     U.modal = function (...args) { A.dirty = false; originalModal(...args); };
     window.addEventListener('beforeunload', event => { if (A.dirty) { event.preventDefault(); event.returnValue = ''; } });
-    window.addEventListener('hashchange', () => { A.route = route(); A.filters = {}; A.render(); window.scrollTo(0, 0); });
+    window.addEventListener('hashchange', () => { cancelSearch(); searchComposing = false; A.route = route(); A.filters = {}; A.render(); window.scrollTo(0, 0); });
     window.addEventListener('online', () => A.state && A.render());
     window.addEventListener('offline', () => A.state && A.render());
     window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); A.installPrompt = event; if (A.state && A.route === 'settings') A.render(); });

@@ -1,5 +1,5 @@
 {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "files": [
         {
             "path": ".nojekyll",
@@ -13,18 +13,18 @@
         },
         {
             "path": "CHANGELOG.md",
-            "bytes": 893,
-            "sha256": "ac2c82b728c7d172634e201b4e5a97ec0298357c9455df5c8c4ded9f5bb06e72"
+            "bytes": 1518,
+            "sha256": "01a842bc21130447835c1329db9bbcd715c2d5f7ca366d5efd77ab55b2ac1227"
         },
         {
             "path": "README.md",
-            "bytes": 6481,
-            "sha256": "991fd26393a9ccba3de5aff2774a9844d0be645ad4fae6f07ed45401199f20d2"
+            "bytes": 6516,
+            "sha256": "0754560f8adcc20582c2662628666ffeaec66723ffa20c72bf252190b49cd76a"
         },
         {
             "path": "assets/js/app.js",
-            "bytes": 8475,
-            "sha256": "b6065395b0b3add5af521f5864d113cad72668a7a28a7a2ec7e17b7c97ae908d"
+            "bytes": 10500,
+            "sha256": "3c7ef3669963fb7deec1e7de47001de16d1566e730510c20602c91d645074ee0"
         },
         {
             "path": "assets/js/core.js",
@@ -34,7 +34,7 @@
         {
             "path": "assets/js/data.js",
             "bytes": 2400,
-            "sha256": "67e0829fb96e753132319da277685ba3624fd7aa45e9d09371b705e92d983571"
+            "sha256": "0262ee72e76b02372ed3e53fb1fafaf906b82870edda80af3d085b0e55e010f4"
         },
         {
             "path": "assets/js/pages/home.js",
@@ -78,8 +78,8 @@
         },
         {
             "path": "assets/js/ui.js",
-            "bytes": 6223,
-            "sha256": "2ae09af8b5b6664f6a32ecc5e386f68801e8ae9eccdf5b7b1a7d5d8f8ac33b2d"
+            "bytes": 6282,
+            "sha256": "682607f5fc0ac8de643c5862de9a8e956db7b01819cd4504214ccf5357a5b83d"
         },
         {
             "path": "assets/style.css",
@@ -98,8 +98,8 @@
         },
         {
             "path": "docs/VERIFICATION.md",
-            "bytes": 2142,
-            "sha256": "7c7f116f38cf9d54d1f9c8e5edd36e59c207ee246c31978f33bef88a4137e055"
+            "bytes": 2733,
+            "sha256": "1b80e9ad2a6d85f4da5b3f79e5c6bebba1b917ca374fc13f52f6745d69410570"
         },
         {
             "path": "icons/apple-touch-icon.png",
@@ -139,7 +139,7 @@
         {
             "path": "service-worker.js",
             "bytes": 2174,
-            "sha256": "0839815a8bbe25356632ea3d3697201e129ee64c9ea25646eea9a83354431c85"
+            "sha256": "3a5c8325ee5c0f688d78037e488f8139f39d862464ecad65130687940048e0b7"
         },
         {
             "path": "start-preview.bat",
@@ -158,8 +158,8 @@
         },
         {
             "path": "tests/browser.test.cjs",
-            "bytes": 4445,
-            "sha256": "2b7523012c429a23ddbdf490d8a111217938eec455d6caf905742a1bc0b7d88d"
+            "bytes": 6190,
+            "sha256": "8037633abd2d6cea06a2336f5fd44d7ed810dff807ddcfdbadd455bf8844a98c"
         },
         {
             "path": "tests/business.test.cjs",
@@ -172,14 +172,19 @@
             "sha256": "fd43a1a4805001b6db7297ca6063853a659c23fa33bc2a13f6f2c71a576ace08"
         },
         {
+            "path": "tests/search-input.test.cjs",
+            "bytes": 6175,
+            "sha256": "1c15cce5baa4c727ee939333d79db31fd79183acf24631ec55c0d39467769a31"
+        },
+        {
             "path": "tools/generate-icons.py",
             "bytes": 1142,
             "sha256": "7dd272b5b32b101a259f5635f66bb077f68512317a060451fd6949270091fe26"
         },
         {
             "path": "先看这里.txt",
-            "bytes": 837,
-            "sha256": "ea7d36e66e26e2cc1479cb4fe229fb7417e730f1a2eeb5fed295f9a65f13052e"
+            "bytes": 1200,
+            "sha256": "045ad56cbb0e7b4e6b491b67bfc7c76c2c57a8dae84d8e9a170e0ad9c74394c6"
         }
     ]
 }
